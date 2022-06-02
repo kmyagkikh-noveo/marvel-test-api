@@ -28,7 +28,7 @@ function getCharacters(sortBy = "name") {
           .filter(c => c.id !== character.id)
           .filter(c => c.comics.items.some(co => co.resourceURI === comic.resourceURI));
         for (const crossedCharacter of crossedCharacters) {
-          const existingCharacter = crossings.find(crossedCharacter => crossedCharacter.id === crossedCharacter.id);
+          const existingCharacter = crossings.find(cc => cc.id === crossedCharacter.id);
           if (existingCharacter) {
             existingCharacter.comics.push(comic);
           } else {
