@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-const http = require('http');
-const app = require('../app');
+import http from 'http';
+import app from '../app';
 
 // Normalize a port into a number, string, or false.
-function normalizePort(val) {
+function normalizePort(val: string) {
   const port = parseInt(val, 10);
 
   if (Number.isNaN(port)) {
@@ -27,7 +27,7 @@ app.set('port', port);
 // Create the HTTP server
 const server = http.createServer(app);
 
-function onError(error) {
+function onError(error: any) {
   if (error.syscall !== 'listen') {
     throw error;
   }
@@ -51,7 +51,7 @@ function onError(error) {
 
 function onListening() {
   const addr = server.address();
-  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
+  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr?.port}`;
   console.log(`Listening on ${bind}`); // eslint-disable-line no-console
 }
 
