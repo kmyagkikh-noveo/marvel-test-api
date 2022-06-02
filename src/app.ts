@@ -17,7 +17,7 @@ app.use('/', router);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  next(createError.NotFound);
+  next(new createError.NotFound());
 });
 
 // pass any unhandled errors to the error handler
