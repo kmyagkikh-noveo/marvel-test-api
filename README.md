@@ -1,4 +1,18 @@
 # Marvel api test task
+Using the following API, createa project on PostMan to consume and test the API and a small node applications that will:
+API: https://developer.marvel.com/account
+
+Tasks:
+• Get the list of all characters, sorted by name and first apparition on node
+• Get the first apparition of the hero
+• List of comics that a hero appears on
+• List of events that a hero appears on
+and he can create a Directory.
+To get all characters (sort by A-Z and also by first apparition)
+In character information
+First apparition in a comics from this character
+Get all this characters has crossed in comics and in which comics and the date
+Get comics information date characters in this comics
 
 ## Getting Started
 
