@@ -1,6 +1,6 @@
 import express from 'express';
-import { getCharacters, getCharacterComics, getCharacterEvents } from '../services/apiService';
-import { fetchMarvelCharacters } from '../services/marvelApiService';
+import { getCharacterComics, getCharacterEvents } from '../services/apiService';
+import { getCharacters, fetchMarvelCharacters } from '../services/marvelApiService';
 
 const router = express.Router();
 
@@ -24,6 +24,6 @@ router.get('/api/characters/:id/events', async (req, res) => {
 });
 
 // pre-cache all characters
-router.get('api/sync-characters', () => fetchMarvelCharacters());
+router.get('/api/sync-characters', (req_ctx, res) => res.send(fetchMarvelCharacters()));
 
 export default router;
