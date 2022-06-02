@@ -16,6 +16,32 @@ In character information:
 * Get all this characters has crossed in comics and in which comics and the date
 * Get comics information date characters in this comics
 
+## API Routes
+
+### Characters sync
+```
+GET /api/sync-characters
+```
+Fetches all characters from Marvel API. No params.
+
+### Characters list
+```
+GET /api/characters
+```
+Shows list of fetched characters. Includes basic character info along with crossed characters information. Sorted by name by default. Add ```?sortBy=firstApparition``` to sort by first apparition year.
+
+### Character comics
+```
+GET /api/characters/:characterId/comics
+```
+
+Shows list of comics character participated in.
+### Character events
+```
+GET /api/characters/:characterId/events
+```
+
+Shows list of events character participated in.
 ## Getting Started
 
 ### Install dependencies
