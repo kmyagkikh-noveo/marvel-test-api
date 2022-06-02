@@ -1,6 +1,14 @@
 {
-    "extends": "airbnb-base",
+    "extends": [
+        "airbnb-base",
+        "airbnb-typescript"
+    ],
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
     "env": {
         "jest": true
-    }
+    },
+    "ignorePatterns": ["src/__tests__/*", "dist/*"],
+    "rules": { "react/jsx-filename-extension": [0] }
 }
