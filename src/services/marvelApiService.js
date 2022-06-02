@@ -1,6 +1,6 @@
-const axios = require("axios");
-const NodeCache = require("node-cache");
-const config = require("../../config.json");
+const axios = require('axios');
+const NodeCache = require('node-cache');
+const config = require('../../config.json');
 
 const DAY_IN_SECONDS = 24 * 3600;
 const MAXIMUM_OFFSET = 1600;
@@ -9,20 +9,20 @@ const cache = new NodeCache({ stdTTL: DAY_IN_SECONDS });
 
 function parseMarvelCharacters(apiUrl, offset = 0, lastResults = []) {
   if (offset === MAXIMUM_OFFSET) {
-    console.log("All characters parsed");
-    cache.set("characters", lastResults);
+    console.log('All characters parsed');
+    cache.set('characters', lastResults);
     return;
   }
   setTimeout(() => {
     axios
       .get(`${apiUrl}&offset=${offset}`)
-      .then(resp => {
+      .then((resp) => {
         console.log(`statusCode: ${resp.status}`);
         const currentResults = resp.data.data.results;
         const mergedResults = [...lastResults, ...currentResults];
         parseMarvelCharacters(apiUrl, offset + 100, mergedResults);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
         throw Error;
       });
@@ -30,21 +30,25 @@ function parseMarvelCharacters(apiUrl, offset = 0, lastResults = []) {
 }
 
 function fetchMarvelCharacters() {
-  const { hash, key, ts, marvelApiUrl } = config;
+  const {
+    hash, key, ts, marvelApiUrl,
+  } = config;
 
   cache.flushAll();
 
   const url = `${marvelApiUrl}/characters?ts=${ts}&apikey=${key}&hash=${hash}&limit=100`;
   try {
     parseMarvelCharacters(url, 0);
-    return "Parsing started";
+    return 'Parsing started';
   } catch (err) {
-    return "ERROR";
+    return 'ERROR';
   }
 }
 
 async function fetchComics(characterId) {
-  const { hash, key, ts, marvelApiUrl } = config;
+  const {
+    hash, key, ts, marvelApiUrl,
+  } = config;
   const cachedComics = cache.get(`comics_${characterId}`);
   if (cachedComics) {
     return cachedComics;
@@ -63,5 +67,5 @@ async function fetchComics(characterId) {
 
 module.exports = {
   fetchMarvelCharacters,
-  fetchComics
+  fetchComics,
 };
