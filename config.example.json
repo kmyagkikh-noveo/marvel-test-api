@@ -1,0 +1,6 @@
+{
+  "marvelApiUrl": "http://gateway.marvel.com/v1/public",
+  "hash": "marvel-hash",
+  "key": "marvel-key",
+  "ts": "1"
+}
