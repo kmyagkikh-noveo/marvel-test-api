@@ -22,13 +22,15 @@ In character information:
 ```
 GET /api/sync-characters
 ```
-Fetches all characters from Marvel API. No params.
+Starts the process of fetching all characters from Marvel API. No params.  
+**The process itself will take a few minutes to finish.**
+
 
 ### Characters list
 ```
 GET /api/characters
 ```
-Shows list of fetched characters. Includes basic character info along with crossed characters information. Sorted by name by default. Add ```?sortBy=firstApparition``` to sort by first apparition year.
+Shows list of all fetched characters. The list is pretty big so it **takes a while to load**. Includes basic character info along with crossed characters information. Sorted by name by default. Add ```?sortBy=firstApparition``` to sort by first apparition year.
 
 ### Character comics
 ```
@@ -78,10 +80,5 @@ npm run build
 npm start
 ```
 
-### Prefetching all characters data from Marvel API
 
-```
-GET /api/sync-characters
-```
-
-Runs on localhost:3000 by default but can be configured using the `PORT` environment variable.
+Runs on localhost:8000 by default but can be configured using the `PORT` environment variable.
