@@ -8,8 +8,6 @@ const indexRouter = require('./routes/index');
 
 const errorHandler = require('./middleware/errorHandler');
 
-const DAY_IN_SECONDS = 24 * 3600;
-
 const app = express();
 
 app.use(helmet()); // https://expressjs.com/en/advanced/best-practice-security.html#use-helmet
